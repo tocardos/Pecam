@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Signal Group Management</h1>
+<form method="POST" action="{{ url_for('add_signal_group') }}">
+    <div class="form-group">
+        <label for="alias">Group Alias:</label>
+        <input type="text" class="form-control" id="alias" name="alias">
+    </div>
+    <div class="form-group">
+        <label for="group_name">Group Name:</label>
+        <input type="text" class="form-control" id="group_name" name="group_name">
+    </div>
+    <div class="form-group">
+        <label for="participants">Participants (comma-separated):</label>
+        <input type="text" class="form-control" id="participants" name="participants">
+    </div>
+    <button type="submit" class="btn btn-primary">Add Group</button>
+</form>
+<h2>Group List</h2>
+<ul class="list-group">
+    {% for group in groups %}
+    <li class="list-group-item">
+        {{ group.alias }} - {{ group.group_name }}
+        <p>Participants: {{ group.participants }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

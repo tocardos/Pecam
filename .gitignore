@@ -1,0 +1,9 @@
+# ignore all database
+*.db
+# ignore all recordings 
+*.mp4
+# ingore all files under recordings
+recordings/
+# ignore __pycacche__
+__pycache__/
+

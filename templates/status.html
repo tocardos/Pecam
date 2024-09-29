@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Status</h1>
+<p>Network Status: {{ network_status }}</p>
+<form method="POST" action="{{ url_for('toggle_session') }}">
+    <label for="toggle">Session:</label>
+    <input type="checkbox" id="toggle" name="toggle" {% if pin %} checked {% endif %} onchange="this.form.submit()">
+</form>
+{% if pin %}
+<p>PIN Code: {{ pin }}</p>
+{% endif %}
+<h2>Live Camera Feed</h2>
+<img src="{{ url_for('video_feed') }}" width="100%">
+{% endblock %}
